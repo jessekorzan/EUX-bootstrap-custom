@@ -1,0 +1,189 @@
+.logo {
+	max-width: 400px;
+	margin: 0 auto;	
+}
+
+h4 {
+	font-family: "gibsonsemibold", Helvetica, Arial, sans-serif;	
+}
+a {
+	&:focus, &:target {
+		outline: none;	
+	}	
+}
+main {
+	position: relative;
+	padding: 5vh 0 25vh;
+}
+section {
+	position: relative;
+	background-size: cover;
+	background-position: center center;
+	overflow: hidden;
+	.container {
+		position: relative;
+		z-index: 4;	
+	}
+	&.alt {
+		background: $black;
+		* {
+			color: #fff;	
+		}	
+	}
+	&.cta {
+		background: $brand-primary;
+		
+		* {
+			color: #fff;	
+		}
+	}
+	&.on {
+		.hero {
+			@include opacity(1);
+			@include transform(translateY(0));
+		}
+	}
+}
+
+.brand {
+	color: $brand-primary !important;	
+}
+.bg {
+	@extend %full-coverage;
+	z-index: 0;	
+}
+.fg {
+	@extend %full-coverage;
+	z-index: 1;
+	@include opacity(0.75);
+	//@include filter(saturate(-5));
+	&:after {
+		content: "";
+		width: 0;
+		height: 0;
+		display: block;
+		border-style: solid;
+		border-width: 0 0 100vh 100vw;
+		border-color: transparent transparent $brand-info transparent;	
+	}
+	&.alt {
+		&:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border-style: solid;
+/*
+			border-width: 0 100vw 100vh 0;
+			border-color: transparent $brand-info transparent transparent;
+*/
+			
+			border-width: 100vh 100vw 0 0;
+			border-color: $brand-primary transparent transparent transparent;
+			@include single-transition(all, 460ms, ease-out);
+		}
+	}
+}
+.unit {
+	@extend %full-coverage;
+	@media (min-width: $screen-md-min) {
+    	width: 50%;
+		float: right;
+  	}
+	overflow: hidden;
+	.container {
+		padding-top: 25vh;		
+	}
+	&:nth-child(1) {
+		left: 50%;
+	}
+	&::nth-child(2) {
+		right: 50%;
+	}
+	&.alt {
+		background: $brand-info;
+		* {
+			color: #fff;	
+		}	
+	}
+	&.cta {
+		background: $brand-primary;
+		//text-align: right !important;
+		* {
+			color: #fff;	
+		}	
+	}
+}
+.hero {
+	position: relative;
+	z-index: 4;
+	width: 100%;
+	max-width: 960px;
+	padding: $spacer;	
+	text-align: center;
+	margin: 0 auto;	
+	@include single-transition(all, 460ms, ease-out);
+	@include opacity(0);
+	@include transform(translateY(-25px));
+}
+.box {
+	position: relative;
+	@include intrinsic-ratio(16/9, 160px);
+	border: 6px solid $brand-info;	
+	display: block;
+	@include single-transition(all, 460ms, ease-out);
+	span {
+		position: absolute;
+		bottom: $spacer/4;
+		left: $spacer/4;
+		font-family: "gibsonbold", Helvetica, Arial, sans-serif;
+		text-transform: uppercase;
+		font-size: 24px;
+		line-height: 24px;
+		color: $brand-info !important;
+		letter-spacing: 0.0625em;
+	}
+	&:hover {
+		background: rgba($brand-info, 0.5);	
+	}
+	&.major {
+		border-color: $brand-primary;
+		span {
+			color: $brand-primary !important;	
+		}	
+		&:hover {
+			background: rgba($brand-primary, 0.5);	
+		}
+	}
+}
+.section {
+	.box {
+		position: absolute;
+		z-index: 5;
+		bottom: $spacer;
+		left: $spacer;	
+	}	
+}
+.fx {
+	@include opacity(0.25);
+	@include filter(greyscale(100%));
+	@include single-transition(all, 260ms, ease-in-out);
+	&:hover {
+		//@include opacity(1);
+	}	
+}
+video {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	top:0;
+	right:0;
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	background-color: black; /* in case the video doesn't fit the whole page*/
+	background-position: center center;
+	background-size: contain;
+	object-fit: cover; /*cover video background */
+	z-index:0;
+}
+	

@@ -1,0 +1,111 @@
+// !extensions
+@import "toolkit";
+@import "stitch/patterns";
+@import "color-schemer";
+//@import "animation";
+//@import "animation/animate";
+
+
+// BOOTSTRAP conversions
+// EUX : eux/_variables.scss
+
+$max-width: $screen-lg;
+$spacer : 44px;
+
+// FUNCTION PARTIALS
+%full-coverage {
+	background-position: 50% 50%;
+	background-size: cover;	
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+}
+@mixin panel($ratio:1, $width:100%) {
+	position: relative;
+	background-position: 50% 50%;
+	background-size: cover;		
+	//overflow: hidden;
+	text-align: center;
+	@include intrinsic-ratio($ratio, $width);
+	.wrapper {
+		// centering in the unknown (css-tricks.com)
+		position:absolute;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		&:before {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+		div:first-child {
+			display: inline-block;
+			vertical-align: middle;
+			width: 80%;
+		}
+	}
+}
+@mixin vert-centre($height) {
+	position: relative;
+	.wrapper {
+		display: table;
+		height: $height;
+		width: 100%;
+		text-align: center;
+		> div {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+}
+/* --------------------------------------------------
+
+	VIDEO
+	http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/
+	
+-------------------------------------------------- */
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+.flex-video {
+	position: relative;
+	//padding-top: 25px;
+	padding-bottom: 67.5%;
+	height: 0;
+	margin-bottom: $spacer;
+	overflow: hidden;
+}
+.flex-video.widescreen { padding-bottom: 56.25%; }
+.flex-video.vimeo { padding-top: 0; }
+.flex-video iframe,
+.flex-video object,
+.flex-video embed {
+	position: absolute;
+	top: 0px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+/* --------------------------------------------------
+
+	tweaks
+	
+-------------------------------------------------- */
+.disable-hover {
+	pointer-events: none;
+}
+.iOS_tweaks {
+	height: 100vh;
+	overflow: scroll;
+	-webkit-overflow-scrolling: auto;
+}

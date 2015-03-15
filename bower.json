@@ -1,0 +1,19 @@
+{
+  "name": "eux-bootstrap-custom",
+  "version": "0.0.0",
+  "authors": [
+    "Jesse Korzan <jesse@ethicalux.com>"
+  ],
+  "description": "EUX overrides for bootstrap",
+  "main": "styles.scss",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "eux",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "homepage": "ethicalux.com",
+  "private": false
+}
