@@ -1,2 +1,2 @@
-# EUX-bootstrap-custom
+# EUX-custom-bootstrap
 EUX bootstrap overrides (SCSS)
