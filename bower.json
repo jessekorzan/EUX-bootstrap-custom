@@ -5,7 +5,9 @@
     "Jesse Korzan <jesse@ethicalux.com>"
   ],
   "description": "EUX overrides for bootstrap",
-  "main": "styles.scss",
+  "main": [
+    "assets/styles/styles.scss"
+  ],
   "moduleType": [
     "globals"
   ],
